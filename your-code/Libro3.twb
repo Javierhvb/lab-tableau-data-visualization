@@ -1,0 +1,644 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20201.20.0326.1623                               -->
+<workbook original-version='18.1' source-build='2020.1.2 (20201.20.0326.1623)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <style>
+    <_.fcp.MarkAnimation.true...style-rule element='animation'>
+      <format attr='animation-on' value='ao-on' />
+      <format attr='animation-duration' value='0.0099999997764825821' />
+    </_.fcp.MarkAnimation.true...style-rule>
+  </style>
+  <datasources>
+    <datasource caption='disqualifying_reasons' inline='true' name='federated.0w857if1rdca4f1fh7fjc09zy7ny' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='disqualifying_reasons' name='textscan.0wdpgqn04rhvuj1e4ml4r0lupapg'>
+            <connection class='textscan' directory='C:/Users/usuario/Desktop/Ironhack/Module 1/Week 3/Project/Project-Week-3-Data-Thieves/your-project/csv_files' filename='disqualifying_reasons.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0wdpgqn04rhvuj1e4ml4r0lupapg' name='disqualifying_reasons.csv' table='[disqualifying_reasons#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='es_ES' separator=','>
+            <column datatype='string' name='status' ordinal='0' />
+            <column datatype='datetime' date-parse-format='yyyy' name='year' ordinal='1' />
+            <column datatype='integer' name='points' ordinal='2' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[disqualifying_reasons.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;es&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;€&quot;</attribute>
+              <attribute datatype='string' name='debit-close-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='debit-open-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;es_ES&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot;.&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>status</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[status]</local-name>
+            <parent-name>[disqualifying_reasons.csv]</parent-name>
+            <remote-alias>status</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[disqualifying_reasons.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LES_RES' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>points</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[points]</local-name>
+            <parent-name>[disqualifying_reasons.csv]</parent-name>
+            <remote-alias>points</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Rankreasons' datatype='integer' name='[Calculation_1215971942827442176]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='RANK_UNIQUE(SUM([points]))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column aggregation='Sum' caption='Year' datatype='integer' name='[Calculation_1215971942832795649]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='YEAR(year)' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='string' name='[status]' role='dimension' type='nominal' />
+      <column datatype='datetime' hidden='true' name='[year]' role='dimension' type='ordinal' />
+      <column-instance column='[status]' derivation='None' name='[none:status:nk]' pivot='key' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.460957' measure-ordering='alphabetic' measure-percentage='0.539043' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:status:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;Chassis&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Excluded&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Injured&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Rear wing&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Underweight&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;107\% Rule&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Driveshaft&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Fuel system&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Out of fuel&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Suspension&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Battery&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Engine&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Heat shield fire&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Power loss&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Transmission&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Crankshaft&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Fire&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Mechanical&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Safety belt&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Water pressure&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Clutch&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Exhaust&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Injury&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Refuelling&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Vibrations&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Brake duct&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Engine fire&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Hydraulics&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Power Unit&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Turbo&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Driver Seat&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Fuel pump&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Oil pressure&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Steering&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Withdrew&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Accident&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Drivetrain&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Gearbox&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Overheating&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Technical&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Disqualified&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Fuel pipe&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Oil line&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Spun off&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Wheel nut&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Brakes&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Engine misfire&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Ignition&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Puncture&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Tyre&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;CV joint&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Front wing&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Not classified&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Safety concerns&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Water pump&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Damage&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Fuel&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Not restarted&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Seat&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Wheel&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Distributor&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Fuel pressure&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Oil pipe&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Stalled&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Wheel rim&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Driver unwell&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Fuel rig&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Oil pump&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Supercharger&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Collision&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Eye injury&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Launch control&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Retired&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Water leak&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Broken wing&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;ERS&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Injection&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Radiator&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Tyre puncture&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Alternator&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Electrical&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Halfshaft&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Physical&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Throttle&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Differential&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Fuel leak&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Oil leak&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Spark plugs&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Wheel bearing&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Collision damage&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Fatal accident&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Magneto&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Safety&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Water pipe&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Axle&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Electronics&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Handling&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Pneumatics&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Track rod&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;España&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Hoja 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='disqualifying_reasons' name='federated.0w857if1rdca4f1fh7fjc09zy7ny' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0w857if1rdca4f1fh7fjc09zy7ny'>
+            <column caption='Rankreasons' datatype='integer' name='[Calculation_1215971942827442176]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='RANK_UNIQUE(SUM([points]))'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column aggregation='Sum' caption='Year' datatype='integer' name='[Calculation_1215971942832795649]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='YEAR(year)' />
+            </column>
+            <column-instance column='[Calculation_1215971942832795649]' derivation='None' name='[none:Calculation_1215971942832795649:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[status]' derivation='None' name='[none:status:nk]' pivot='key' type='nominal' />
+            <column datatype='integer' name='[points]' role='measure' type='quantitative' />
+            <column datatype='string' name='[status]' role='dimension' type='nominal' />
+            <column-instance column='[points]' derivation='Sum' name='[sum:points:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1215971942827442176]' derivation='User' name='[usr:Calculation_1215971942827442176:ok:1]' pivot='key' type='ordinal'>
+              <table-calc ordering-field='[federated.0w857if1rdca4f1fh7fjc09zy7ny].[status]' ordering-type='Field' />
+            </column-instance>
+            <column datatype='datetime' hidden='true' name='[year]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0w857if1rdca4f1fh7fjc09zy7ny].[usr:Calculation_1215971942827442176:ok:1]'>
+            <groupfilter function='union' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[usr:Calculation_1215971942827442176:ok:1]' member='1' />
+              <groupfilter function='member' level='[usr:Calculation_1215971942827442176:ok:1]' member='2' />
+              <groupfilter function='member' level='[usr:Calculation_1215971942827442176:ok:1]' member='3' />
+              <groupfilter function='member' level='[usr:Calculation_1215971942827442176:ok:1]' member='4' />
+              <groupfilter function='member' level='[usr:Calculation_1215971942827442176:ok:1]' member='5' />
+              <groupfilter function='member' level='[usr:Calculation_1215971942827442176:ok:1]' member='6' />
+              <groupfilter function='member' level='[usr:Calculation_1215971942827442176:ok:1]' member='7' />
+              <groupfilter function='member' level='[usr:Calculation_1215971942827442176:ok:1]' member='8' />
+              <groupfilter function='member' level='[usr:Calculation_1215971942827442176:ok:1]' member='9' />
+              <groupfilter function='member' level='[usr:Calculation_1215971942827442176:ok:1]' member='10' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0w857if1rdca4f1fh7fjc09zy7ny].[usr:Calculation_1215971942827442176:ok:1]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0w857if1rdca4f1fh7fjc09zy7ny].[sum:points:qk]' field-type='quantitative' max='70' min='1' range-type='fixed' scope='cols' type='space' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.0w857if1rdca4f1fh7fjc09zy7ny].[usr:Calculation_1215971942827442176:ok:1]' value='55' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0w857if1rdca4f1fh7fjc09zy7ny].[none:status:nk]' />
+              <text column='[federated.0w857if1rdca4f1fh7fjc09zy7ny].[none:status:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0w857if1rdca4f1fh7fjc09zy7ny].[usr:Calculation_1215971942827442176:ok:1]</rows>
+        <cols>[federated.0w857if1rdca4f1fh7fjc09zy7ny].[sum:points:qk]</cols>
+        <pages>
+          <column>[federated.0w857if1rdca4f1fh7fjc09zy7ny].[none:Calculation_1215971942832795649:ok]</column>
+        </pages>
+        <table-calculations>
+          <partitionable-measures>
+            <column>[federated.0w857if1rdca4f1fh7fjc09zy7ny].[sum:Calculation_1215971942832795649:ok]</column>
+          </partitionable-measures>
+        </table-calculations>
+      </table>
+      <simple-id uuid='{1183C352-3008-495F-8C65-CE506D5D3E9B}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Hoja 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='175'>
+            <card pane-specification-id='1' param='[federated.0w857if1rdca4f1fh7fjc09zy7ny].[none:status:nk]' type='color' />
+            <card type='currpage' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <current-page>
+          <multibucket>
+            <bucket>2011</bucket>
+          </multibucket>
+        </current-page>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0w857if1rdca4f1fh7fjc09zy7ny].[none:Calculation_1215971942832795649:ok]</field>
+            <field>[federated.0w857if1rdca4f1fh7fjc09zy7ny].[none:status:nk]</field>
+            <field>[federated.0w857if1rdca4f1fh7fjc09zy7ny].[none:year:nk]</field>
+            <field>[federated.0w857if1rdca4f1fh7fjc09zy7ny].[none:year:qk]</field>
+            <field>[federated.0w857if1rdca4f1fh7fjc09zy7ny].[yr:year:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{E6C9525A-A499-4C22-901E-864FFE5C4D12}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Hoja 1' width='192'>
+      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
+      RU5ErkJggg==
+    </thumbnail>
+  </thumbnails>
+</workbook>
